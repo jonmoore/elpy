@@ -3,7 +3,9 @@
 (require 'f)
 (let ((elpy-dir (f-parent (f-dirname (f-this-file)))))
   (add-to-list 'load-path elpy-dir)
-  (add-to-list 'process-environment (format "PYTHONPATH=%s" elpy-dir))
+  (add-to-list 'process-environment (format "PYTHONPATH=%s:%s"
+					    elpy-dir
+					    (getenv "PYTHONPATH")))
   (add-to-list 'process-environment "ELPY_TEST=1"))
 (require 'elpy)
 ;; Travis regularly has some lag for some reason.
@@ -95,6 +97,7 @@ itself a list where the car indicates the type of environment.
   (declare (indent 1))
   `(save-buffer-excursion
      (with-temp-buffer
+       (setq elpy-rpc-timeout 100)
        ,(elpy-testcase-transform-spec spec body))
      (when (and (boundp 'elpy-enable)
                 elpy-enable)

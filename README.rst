@@ -29,14 +29,12 @@ First, install the required Python packages:::
   pip install jedi
   # flake8 for code checks
   pip install flake8
-  # importmagic for automatic imports
-  pip install importmagic
   # and autopep8 for automatic PEP8 formatting
   pip install autopep8
   # and yapf for code formatting
   pip install yapf
 
-One-line install: **pip install jedi flake8 importmagic autopep8**
+One-line install: **pip install jedi flake8 autopep8**
 
 Evaluate this in your ``*scratch*`` buffer:
 
@@ -44,19 +42,30 @@ Evaluate this in your ``*scratch*`` buffer:
 
   (require 'package)
   (add-to-list 'package-archives
-               '("elpy" . "https://jorgenschaefer.github.io/packages/"))
+               '("melpa-stable" . "https://stable.melpa.org/packages/"))
 
 
 Then run ``M-x package-refresh-contents`` to load the contents of the
 new repository, and ``M-x package-install RET elpy RET`` to install
 elpy.
 
-Finally, add the following to your ``.emacs``:
+Users of Debian ≥10 or Ubuntu ≥18.10 can skip the instructions above
+this line and may simply install Elpy and all of its recommended
+dependencies with the following command:::
+
+  sudo apt install elpa-elpy
+
+Elpy can then be activated by running ``M-x elpy-enable``
+
+Finally, to make this automatic, add the following to your ``.emacs``:
 
 .. code-block:: lisp
 
   (package-initialize)
   (elpy-enable)
+  ;; (package-initialize) should already exist at the top of the init
+  ;; file on Debian-derived systems, thus (elpy-enable) should be all
+  ;; that is required.
 
 Done.
 
@@ -77,3 +86,15 @@ it under the terms of the `GNU General Public License`__, either
 version 3 of the License, or (at your option) any later version.
 
 .. __: LICENSE
+
+Thank You
+=========
+
+If you would like to support this work, you can become a patreon:
+
+https://www.patreon.com/jorgenschaefer
+
+Please note that this is completely voluntary, and does not make you
+more important than others when it comes to issues, feature requests
+or anything. I appreciate donations, but do not feel compelled to
+spend money, and do not feel bad if you don't.

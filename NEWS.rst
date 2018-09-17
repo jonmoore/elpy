@@ -1,3 +1,151 @@
+New in Elpy 1.24.0
+==================
+
+- Eldoc messages are a bit nicer now
+- Flymake has a useful modeline in Emacs 26 now, so Elpy won't hide it
+  anymore
+- Elpy will now also use the Python shell to suggest completions
+
+New in Elpy 1.23.0
+==================
+
+- Use the new ``elpy-syntax-check-command`` variable to configure
+  which syntax checker to use in Emacs 26
+- Sending a "group" to the shell now uses the ``o`` suffix instead of
+  ``g`` to avoid clashing with ``C-g``
+
+New in Elpy 1.22.0
+==================
+
+- Elpy now supports the Black source code formatter.
+- Make Elpy work more nicely with the new Flymake.
+- Support Emacs 26.1
+- Lots of bugfixes.
+
+New in Elpy 1.21.0
+==================
+
+- Debian now ships with elpy, you can use apt-get to install it.
+- Elpy now knows how to deal with the flymake in the upcoming Emacs
+  release.
+- Some minor improvements in error messages and warnings.
+
+New in Elpy 1.20.0
+==================
+
+- No new features, but lots of bugfixes
+
+Thanks again to Gaby Launay for the continued and exceptional work!
+
+
+New in Elpy 1.19.0
+==================
+
+- Python 3.6 and Emacs 25.3 are now officially supported.
+- Sending code to a Python process is now a lot more convenient, see
+  the documentation for more information.
+- Elpy can now automatically update the buffer displaying help for the
+  symbol under point. Customize ``elpy-modules`` and enable the autodoc
+  module there!
+- yapf and autopep8 now use their respective config files in the
+  project root.
+- And tons of bugfixes.
+
+Thanks to Craig MacEachern, Daniel Gopar, Gaby Launay, Maxim
+Cournoyer, Nicholas D. Steeves and Sam Steingold for their help in
+making this release!
+
+
+New in Elpy 1.18.0
+==================
+
+- Elpy is now using MELPA Stable as the official distribution point.
+  Please remove jorgenschaefer.github.io from your sources list if you
+  still use it. It will not receive further updates after 1.18.
+- New commands for interacting with the Python shell, thanks to Rainer
+  Gemulla. Check them out at
+  https://elpy.readthedocs.io/en/latest/ide.html#evaluating-code-fragments
+- Shells started using ``C-c C-z`` will now use the project root as
+  the current directory, to be in line with other code sending
+  functionality.
+- importmagic has been removed. While this package added some nice
+  functionality to Elpy, the way it worked by importing every module
+  caused a lot of bugs. It was not an easy decision, but this is
+  better for most Elpy users.
+- Rope is no longer supported for completions and similar
+  functionality. Refactoring support using Rope is still there. Sadly,
+  Rope has not received much of any update in a long time, and
+  attempts to revive it failed. Maintaining multiple code paths to
+  support both Jedi and Rope was complicated, so we decided to get rid
+  of Rope for these features. Jedi is almost always an equivalent if
+  not better choice.
+- The Green test runner is now supported by default.
+- Beyond all of this, there were numerous bugfixes.
+
+We are happy to report that Elpy now has more maintainers! Daniel
+Gopar, Rainer Gemulla and @galaunay are now helping regularly with
+this project.
+
+Thanks to all the contributors!
+
+
+New in Elpy 1.17.0
+==================
+
+- The xref functionality in newer Emacsen is now supported for
+  following symbols at point.
+- Elpy now supports PEP 397 for Windows executable names.
+- In addition to pylint, Elpy now also supports epylint correctly.
+- A number of features for working with interactive Python have been added to
+  Elpy; e.g., commands for sending code fragments to the Python shell and the
+  ability to echo their output in the message area. See the documentation for a
+  full list.
+- Bunch of little bugfixes.
+
+
+New in Elpy 1.16.0
+==================
+
+- You can now change which function is used to run test commands,
+  instead of the default ``compile``, using
+  ``elpy-test-compilation-function``. This allows using ``pdb`` to run
+  tests in a debugger, for example.
+- Elpy now sets ``IPY_TEST_SIMPLE_PROMPT``, which should prevent a
+  number of problems with IPython 5.
+- If you like Elpy, you can now sponsor its development using Patreon
+  at https://www.patreon.com/jorgenschaefer
+
+
+New in Elpy 1.15.0
+==================
+
+- Elpy now supports profiling, try ``elpy-profile-buffer-or-region``!
+- Do not randomly downcase completion candidates anymore.
+- Work around a bug in Emacs 25.1 and before related to current
+  IPython shells.
+- And lots of other bugfixes.
+
+
+New in Elpy 1.14.0
+==================
+
+- Basic Django support. Try ``C-c C-x c`` and ``C-c C-x r``! Thanks to
+  Daniel Gopar for this.
+- You can now use manage.py to run Django tests, instead of always
+  using django-admin.py.
+- When called with a prefix argument ``elpy-importmagic-add-import``
+  will now ask for an alias name to import as.
+
+
+New in Elpy 1.13.0
+==================
+
+- Fewer surprises with syntax checks, ``C-c C-z``, reformatting
+- Improved behavior for reformatting.
+- Improved documentation for IPython. IPython 5 broke a lot of things
+  with Emacs. Use it at your own risk.
+
+
 New in Elpy 1.12.0
 ==================
 
